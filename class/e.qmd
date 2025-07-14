@@ -1,0 +1,52 @@
+import pandas as pd
+
+# Load dataset
+url = 'https://github.com/fivethirtyeight/data/raw/master/star-wars-survey/StarWars.csv'
+df = pd.read_csv(url, encoding='ISO-8859-1')
+
+# List of film columns
+film_columns = [
+    'Star Wars: Episode I  The Phantom Menace',
+    'Star Wars: Episode II  Attack of the Clones',
+    'Star Wars: Episode III  Revenge of the Sith',
+    'Star Wars: Episode IV  A New Hope',
+    'Star Wars: Episode V The Empire Strikes Back',
+    'Star Wars: Episode VI Return of the Jedi'
+]
+
+# Q1: At least one film seen by anyone
+seen_any = df[film_columns].notna().any(axis=1)
+percent_seen_any = seen_any.mean() * 100
+print(f"Q1: {percent_seen_any:.4f}%")
+
+# Q2: At least one film seen by males
+males = df[df['Gender'] == 'Male']
+seen_any_males = males[film_columns].notna().any(axis=1)
+percent_seen_any_males = seen_any_males.mean() * 100
+print(f"Q2: {percent_seen_any_males:.4f}%")
+import pandas as pd
+
+# Load dataset
+url = 'https://github.com/fivethirtyeight/data/raw/master/star-wars-survey/StarWars.csv'
+df = pd.read_csv(url, encoding='ISO-8859-1')
+
+# List of film columns
+film_columns = [
+    'Star Wars: Episode I  The Phantom Menace',
+    'Star Wars: Episode II  Attack of the Clones',
+    'Star Wars: Episode III  Revenge of the Sith',
+    'Star Wars: Episode IV  A New Hope',
+    'Star Wars: Episode V The Empire Strikes Back',
+    'Star Wars: Episode VI Return of the Jedi'
+]
+
+# Q1: At least one film seen by anyone
+seen_any = df[film_columns].notna().any(axis=1)
+percent_seen_any = seen_any.mean() * 100
+print(f"Q1: {percent_seen_any:.4f}%")
+
+# Q2: At least one film seen by males
+males = df[df['Gender'] == 'Male']
+seen_any_males = males[film_columns].notna().any(axis=1)
+percent_seen_any_males = seen_any_males.mean() * 100
+print(f"Q2: {percent_seen_any_males:.4f}%")

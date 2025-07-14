@@ -1,0 +1,12 @@
+{
+  "hash": "0534cc20b7b7c5fb36af725cfe0a11a9",
+  "result": {
+    "engine": "jupyter",
+    "markdown": "---\ntitle: \"Coding Challenge\"\nsubtitle: \"Course DS 250\"\nauthor: \"Student Name\"\nformat:\n  html:\n    self-contained: true\n    page-layout: full\n    title-block-banner: true\n    toc: true\n    toc-depth: 3\n    toc-location: body\n    number-sections: false\n    html-math-method: katex\n    code-fold: true\n    code-summary: \"Show the code\"\n    code-overflow: wrap\n    code-copy: hover\n    code-tools:\n        source: false\n        toggle: true\n        caption: See code\n    \n---\n\n::: {#63ca48bc .cell execution_count=1}\n``` {.python .cell-code}\n# Read in libraries\nimport pandas as pd\nimport numpy as np\nfrom lets_plot import *\n\nLetsPlot.setup_html(isolated_frame=True)\n```\n:::\n\n\n::: {#6ce2b052 .cell execution_count=2}\n``` {.python .cell-code}\n# Read in the names data\nurl = \"https://github.com/byuidatascience/data4names/raw/master/data-raw/names_year/names_year.csv\"\nnames = pd.read_csv(url)\n```\n:::\n\n\n## Question #:\n\n### [Replace with the text from question #]\n\n::: {#dd707433 .cell execution_count=3}\n``` {.python .cell-code}\n# Question # Code\n\n```\n:::\n\n\nWhen done with a question, render it to a `.html` file and upload it for the question. Either re-downolad this template or file -> save as -> a new file name and then replace the text in the question with the new question text.\n\n",
+    "supporting": [
+      "ds250_coding_challenge_template_files"
+    ],
+    "filters": [],
+    "includes": {}
+  }
+}
