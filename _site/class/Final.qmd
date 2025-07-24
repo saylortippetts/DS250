@@ -1,0 +1,70 @@
+```{python}
+# Include and execute your code here
+import pandas as pd
+
+url = "https://raw.githubusercontent.com/byuidatascience/data4names/master/data-raw/names_year/names_year.csv"
+
+df = pd.read_csv(url)
+names = pd.read_csv(url)
+names.head()
+```
+
+```{python}
+peter = names[names['name'] == 'Peter'][['year', 'UT', 'OR']]
+peter_long = peter.melt(id_vars='year', var_name='state', value_name='count')
+
+# Annotations as a DataFrame
+ann = pd.DataFrame({
+    'year': [1930, 1972, 2005],
+    'count': [70, 70, 70],
+    'label': ['1930', '1972', '2005']
+})
+
+# Plot
+ggplot(peter_long) + \
+    geom_line(aes(x='year', y='count', color='state'), size=1.2) + \
+    geom_vline(xintercept=1930, color='gray', linetype='dashed') + \
+    geom_vline(xintercept=1972, color='gray', linetype='dashed') + \
+    geom_vline(xintercept=2005, color='gray', linetype='dashed') + \
+    geom_text(aes(x='year', y='count', label='label'), data=ann, hjust=-0.1) + \
+    ggtitle("The history of Peter for Utah (red) and Oregon (orange)") + \
+    xlab("Year name given") + ylab("Count of Peter") + \
+    scale_color_manual(values={"UT": "red", "OR": "orange"}) + \
+    theme_minimal()
+
+
+
+```
+
+```{python}
+
+```
+
+```{python}
+import pandas as pd
+
+# Load the JSON data from URL
+url = "https://raw.githubusercontent.com/byuidatascience/data4missing/master/data-raw/flights_missing/flights_missing.json"
+df = pd.read_json(url)
+
+# Fill missing values in both columns with their median
+df['minutes_delayed_carrier'] = df['minutes_delayed_carrier'].fillna(df['minutes_delayed_carrier'].median())
+df['minutes_delayed_nas'] = df['minutes_delayed_nas'].fillna(df['minutes_delayed_nas'].median())
+
+# Calculate standard deviations
+std_carrier = df['minutes_delayed_carrier'].std()
+std_nas = df['minutes_delayed_nas'].std()
+
+# Output the larger standard deviation rounded to 2 decimal places
+round(max(std_carrier, std_nas), 2)
+
+
+```
+
+```{python}
+url = "https://github.com/fivethirtyeight/data/raw/master/star-wars-survey/StarWars.csv"
+
+df['Location (Census Region)'].unique()
+
+
+```
